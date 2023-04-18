@@ -1,0 +1,45 @@
+---
+import Card from "../../components/Card.astro";
+import Header from "../../components/Header.astro";
+import Hero from "../../components/Hero.astro";
+import Layout from "../../layouts/Layout.astro";
+// TODO: mejor forma de traer el contenido
+import { getCollection } from "astro:content";
+const posts = (await getCollection("tips")).sort((a, b) => a.data.pubDate.valueOf() - b.data.pubDate.valueOf());
+
+---
+
+<Layout title="Welcome to Astro.">
+  <main>
+    <Header title="Astro.tips Danniel" />
+	<Hero />
+    <ul role="list" class="link-card-grid">
+      {
+      posts.map((post) => {
+          return (
+            <Card
+              time={post.data.pubDate}
+              title={post.data.title}
+              tags={post.data.tags}
+              slug={post.slug}
+            />
+          );
+      })
+      }
+    </ul>
+  </main>
+</Layout>
+
+<style>
+  main {
+    margin: auto;
+    padding: 1.5rem;
+    max-width: 60ch;
+  }
+  .link-card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(24ch, 1fr));
+    gap: 1rem;
+    padding: 0;
+  }
+</style>
