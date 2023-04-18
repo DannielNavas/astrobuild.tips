@@ -20,6 +20,7 @@ const allPost = await Astro.glob("../content/**/*.md");
               time={item?.frontmatter?.pubDate}
               title={item?.frontmatter?.title}
               tags={item?.frontmatter?.tags}
+              slug="/blog/astro-tips"
             />
           );
       })

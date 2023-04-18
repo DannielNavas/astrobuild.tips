@@ -2,8 +2,9 @@
 title: "hello world"
 pubDate: "2021-09-02"
 description: "hello world"
-image: "https://www.example.com/image.jpg"
+image: "https://random.imagecdn.app/500/150"
 tags: ["hello", "world"]
+layout: "../../layouts/Post.astro"
 ---
 
 lorem ipsum
