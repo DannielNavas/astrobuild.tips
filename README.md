@@ -12,7 +12,6 @@ npm create astro@latest -- --template basics
 
 ![basics](https://user-images.githubusercontent.com/4677417/186188965-73453154-fdec-4d6b-9c34-cb35c248ae5b.png)
 
-
 ## 🚀 Project Structure
 
 Inside of your Astro project, you'll see the following folders and files:
@@ -53,3 +52,19 @@ All commands are run from the root of the project, from a terminal:
 ## 👀 Want to learn more?
 
 Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+
+## Directivas del cliente
+
+De forma predeterminada, un componente de framework no está hidratado en el cliente. Si no se proporciona la directiva client:\*, tu HTML se representa en la página sin JavaScript.
+
+Estos son los valores que puede tener la directiva client:
+
+**client:load**: Cargue e hidrate el JavaScript del componente inmediatamente al cargar la página.
+**client:idle**: Cargue e hidrate el componente JavaScript una vez que la página haya terminado con su carga inicial
+**client:visibl**e: Cargue e hidrate el JavaScript del componente una vez que haya ingresado al viewport del usuario. Esto utiliza un IntersectionObserver internamente para realizar un seguimiento de la visibilidad.
+**client:media**: client:media={string} carga e hidrata el componente JavaScript una vez que se cumple una determinada media query de CSS.
+**client:only**: ¡Debes pasar el framework correcto al componente! Debido a que Astro no ejecuta el componente durante su compilación/en el servidor, Astro no sabe qué framework usa el componente a menos que se lo indiques explícitamente.
+
+```html
+<SomeReactComponent client:only="react" />
+```
