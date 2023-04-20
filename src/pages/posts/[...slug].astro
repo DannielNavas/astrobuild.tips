@@ -4,6 +4,7 @@ import Footer from "../../components/Footer.vue";
 import Header from "../../components/Header";
 import HeaderTop from "../../components/HeaderTop";
 import Social from "../../components/Social.svelte";
+import Base from "../../layouts/base.astro";
 
 export async function getStaticPaths() {
     const posts = await getCollection("tips");
@@ -16,10 +17,10 @@ export async function getStaticPaths() {
 const post = Astro.props;
 const {Content} = await post.render();
 ---
-<!-- <Base title="Astro Tips: {post.title}"> -->
+<Base title="Astro Tips: {post.title}">
     <HeaderTop client:load />
     <Header title="Astro Tips: {post.title}" />
     <Content />
     <Social />
     <Footer />
-<!-- </Base> -->
+</Base>
