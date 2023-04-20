@@ -67,4 +67,8 @@ Estos son los valores que puede tener la directiva client:
 
 ```html
 <SomeReactComponent client:only="react" />
+<SomePreactComponent client:only="preact" />
+<SomeSvelteComponent client:only="svelte" />
+<SomeVueComponent client:only="vue" />
+<SomeSolidComponent client:only="solid-js" />
 ```
